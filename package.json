@@ -1,14 +1,13 @@
 {
-  "name": "@devshetty/password-generator",
-  "version": "1.0.0",
+  "name": "sorcerykey",
+  "version": "1.2.1",
   "description": "A CLI password generator for those times when u can't think of one",
-  "main": "index.js",
-  "bin": {
-    "@devshetty/password-generator": "./index.js"
-  },
+  "main": "./dist/index.js",
+  "bin": "./dist/index.js",
   "scripts": {
     "build": "npx tsc",
     "watch": "tsc -w",
+    "prepublishOnly": "tsc -p ./ --outDir dist/",
     "dev": "node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
