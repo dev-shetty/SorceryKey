@@ -12,7 +12,7 @@ console.log(
   "Pose your inquiries, and behold as I weave the strands of chance into a password spun from the threads of randomness, crafted exclusively for you. \n"
 )
 program
-  .version("1.2.3")
+  .version("1.2.4")
   .description(
     "A NPM Package for Generating Random Password.... But there are already many? Why not another one 😉"
   )
