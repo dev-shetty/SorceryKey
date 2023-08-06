@@ -7,8 +7,12 @@ import { getRandomNumber } from "./utils"
 
 const program = new Command()
 
+console.log(textSync("SorceryKey"))
+console.log(
+  "Pose your inquiries, and behold as I weave the strands of chance into a password spun from the threads of randomness, crafted exclusively for you. \n"
+)
 program
-  .version("1.2.2")
+  .version("1.2.3")
   .description(
     "A NPM Package for Generating Random Password.... But there are already many? Why not another one 😉"
   )
@@ -22,7 +26,6 @@ function getRandomPassword(passwordLength: number): string {
   let password: string = ""
   while (password.length < passwordLength) {
     // To have a good ratio of different characters, for instance the password should not be overdone with symbols this will limit it.
-
     const trigger = getRandomNumber(10)
 
     if (passwordRequirements.includes("symbols") && trigger % 7 == 0) {
@@ -37,13 +40,6 @@ function getRandomPassword(passwordLength: number): string {
   }
 
   return password
-}
-
-function init() {
-  console.log(textSync("SorceryKey"))
-  console.log(
-    "Pose your inquiries, and behold as I weave the strands of chance into a password spun from the threads of randomness, crafted exclusively for you. \n"
-  )
 }
 
 async function passwordGenerator() {
@@ -92,5 +88,4 @@ async function passwordGenerator() {
   )
 }
 
-init()
 passwordGenerator()
