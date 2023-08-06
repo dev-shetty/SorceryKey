@@ -1,6 +1,6 @@
 {
   "name": "sorcerykey",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "A CLI password generator for those times when u can't think of one",
   "main": "./dist/index.js",
   "bin": "./dist/index.js",

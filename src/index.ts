@@ -8,12 +8,13 @@ import { getRandomNumber } from "./utils"
 const program = new Command()
 
 program
-  .version("1.2.1")
+  .version("1.2.2")
   .description(
     "A NPM Package for Generating Random Password.... But there are already many? Why not another one 😉"
   )
+  .option("-l, --length <n>", "Specify the length of the password", parseInt)
   .parse(process.argv)
-program.opts()
+const options = program.opts()
 
 let passwordRequirements: string[] = []
 
@@ -46,16 +47,24 @@ function init() {
 }
 
 async function passwordGenerator() {
-  let passwordLength = await input({
-    message: "Declare the length, let magic forge the password:",
-  })
-
-  // Keep on re-prompting till the user puts correct number
-  while (isNaN(parseInt(passwordLength))) {
+  let passwordLength
+  if (!options.length) {
     passwordLength = await input({
-      message:
-        "Magical energies falter! Please provide a valid mystical number:",
+      message: "Declare the length, let magic forge the password:",
     })
+
+    // Keep on re-prompting till the user puts correct number
+    while (isNaN(parseInt(passwordLength))) {
+      passwordLength = await input({
+        message:
+          "Magical energies falter! Please provide a valid mystical number:",
+      })
+    }
+  } else {
+    passwordLength = options.length
+    console.log(
+      `You have chosen a mystical password span of ${passwordLength}. \n`
+    )
   }
 
   passwordRequirements = await checkbox({
